@@ -1,5 +1,6 @@
 package JearBot;
 
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -12,14 +13,16 @@ public class Commands extends ListenerAdapter {
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
+        User user = event.getAuthor();
+
 
         if (args[0].equalsIgnoreCase(Main.prefix)) {
             switch (args[1].toLowerCase()) {
                 case "hello":
-                    event.getChannel().sendMessage("Hey there, I'm alive.").queue();
+                    event.getChannel().sendMessage("Hey there <@" + user.getId() + ">, I'm alive.").queue();
                     break;
                 case "hi":
-                    event.getChannel().sendMessage("Howdy").queue();
+                    event.getChannel().sendMessage("Howdy <@" + user.getId() + ">!").queue();
                     break;
                 case "customsadd":
                     List<String> players = Arrays.asList(args).subList(2, args.length);
@@ -50,6 +53,10 @@ public class Commands extends ListenerAdapter {
                 case "help":
                     event.getChannel().sendMessage("Here is the full documentation for me: \n " +
                             "https://docs.google.com/document/d/11TOlKvMxdEcCdbnhLqljsfHb2LHHyP2lO3F7269xfkM/edit?usp=sharing").queue();
+                    break;
+                case "lolinfo":
+                    LolDataRetreiver lolDataRetreiver = new LolDataRetreiver(args[2]);
+                    event.getChannel().sendMessage(lolDataRetreiver.summarizeData());
                     break;
             }
 

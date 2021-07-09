@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) throws LoginException {
         customsMaker = new CustomsMaker(new ArrayList<>());
         JDABuilder builder = JDABuilder.createDefault("");
-        jda = builder.setToken("ODQxODA3Mzc0NDczMzYzNDY3.YJsINg.sTu-uKfNFHD_jYTr06b4dgbeRXQ").build();
+        jda = builder.setToken("ODQxODA3Mzc0NDczMzYzNDY3.YJsINg.1vDb3U_cOeuAW1232vbEMCu7P9E").build();
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.playing("with your heart owo"));
 

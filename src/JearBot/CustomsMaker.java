@@ -41,7 +41,7 @@ public class CustomsMaker {
         for (int i = team1Size; i < players.size(); i++) {
             team2 += players.get(i) + " ";
         }
-        return ("Team 1: " + team1 + "\n Team 2: " + team2);
+        return ("Team 1: " + team1 + "\nTeam 2: " + team2);
     }
 
     public void deletePlayers(List<String> playersToDelete) {
