@@ -28,7 +28,7 @@ public class CustomsMakerTest {
     public void getTeamsTestEven() {
         testCustomsMaker = new CustomsMaker(testPlayers);
         assertEquals("Team 1: Bob1 Bob2 Bob3 \n" +
-                " Team 2: Bob4 Bob5 Bob6 ", testCustomsMaker.getTeams());
+                "Team 2: Bob4 Bob5 Bob6 ", testCustomsMaker.getTeams());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class CustomsMakerTest {
         testPlayers.add("Bob7");
         testCustomsMaker = new CustomsMaker(testPlayers);
         assertEquals("Team 1: Bob1 Bob2 Bob3 \n" +
-                " Team 2: Bob4 Bob5 Bob6 Bob7 ", testCustomsMaker.getTeams());
+                "Team 2: Bob4 Bob5 Bob6 Bob7 ", testCustomsMaker.getTeams());
     }
 
     @Test

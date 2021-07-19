@@ -55,8 +55,11 @@ public class Commands extends ListenerAdapter {
                             "https://docs.google.com/document/d/11TOlKvMxdEcCdbnhLqljsfHb2LHHyP2lO3F7269xfkM/edit?usp=sharing").queue();
                     break;
                 case "lolinfo":
-                    LolDataRetreiver lolDataRetreiver = new LolDataRetreiver(args[2]);
-                    event.getChannel().sendMessage(lolDataRetreiver.summarizeData());
+                    List<String> nameSegments = Arrays.asList(args).subList(2, args.length);
+                    String playerName = String.join(" ", nameSegments);
+                    playerName = playerName.replaceAll(" ", "%20");
+                    LolDataRetreiver lolDataRetreiver = new LolDataRetreiver(playerName);
+                    event.getChannel().sendMessage(lolDataRetreiver.summarizeData()).queue();
                     break;
             }
 
